@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Lakki+Reddy&display=swap');
+.appHeading{
+    color: #AD00FF;
+    font-family: "Lakki Reddy" , serif;
+    font-size: 96px;
+    font-weight: 400;
+    animation: headingAnimate 2s ease-in infinite;
+}
+
+.start-btn{
+    border-radius: 20px;
+    background: #AD00FF;
+
+    box-shadow: 0px 5px 0px 0px #680098;
+    /* box-shadow: 0px 5px 0px 0px #520078; */
+}
+
+.toggle-btn{
+    margin-top: 30px;
+    border-radius: 20px;
+
+    background: #DCDCDC;
+    background: #323232;
+    
+    box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.40);
+    /* box-shadow: 0px 5px 0px 0px rgba(220, 220, 220, 0.45); */
+
+}
+
+
+.btn{
+    width: 246px;
+    height: 65px;
+    color: white;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    /* transition: all 2s ease-in-out; */
+}
+
+.btn:active{
+    box-shadow: none;
+    transform: scale(0.95);
+}
+
+@keyframes headingAnimate{
+    0%{
+        transform: translateY(0px);
+    }
+    25%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    75%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
