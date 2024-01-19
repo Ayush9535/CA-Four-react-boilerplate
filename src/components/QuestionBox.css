@@ -9,8 +9,8 @@
 .heading-nav{
     width: 100%;
     display: flex;
-    justify-content: end;
-    padding-right: 50px;
+    justify-content: space-around;
+    padding-left: 265px;
 }
 
 .toggle-btn2{

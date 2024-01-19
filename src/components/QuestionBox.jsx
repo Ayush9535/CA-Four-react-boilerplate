@@ -45,9 +45,9 @@ export default function QuestionBox({setPage , currentState , toggleBtn , onbutt
   return (
         <>
       <div className='heading-nav'>
+        <h1 className='Heading'>QUIZWIZ</h1>
         <button className='toggle-btn2' style={toggleBtn} onClick={()=>{onbuttonClick()}}>{currentState ? <MdDarkMode style={{fontSize:"30px"}}/> : <FaRegLightbulb style={{fontSize:"25px"}}/>}</button>
       </div>
-      <h1 className='Heading'>QUIZWIZ</h1>
 
       <h2>Question  :  <span>{currQues + 1}</span>  of  <span>{questions.length}</span></h2>
 

@@ -14,9 +14,9 @@ export default function Result({setPage , currentState , toggleBtn , onbuttonCli
   return (
     <>
       <div className='heading-nav'>
+        <h1 className='Heading'>QUIZWIZ</h1>
         <button className='toggle-btn2' style={toggleBtn} onClick={()=>{onbuttonClick()}}>{currentState ? <MdDarkMode style={{fontSize:"30px"}}/> : <FaRegLightbulb style={{fontSize:"25px"}}/>}</button>
       </div>
-      <h1 className='Heading'>QUIZWIZ</h1>
 
       <h1 className='head' style={resultsStyle}>Results Page</h1>
 
