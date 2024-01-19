@@ -24,7 +24,7 @@ function App() {
 
   let toggleBtnStyle = {
     backgroundColor : theme ? "#66BFBF" : "#323232",
-    boxShadow : theme ? "5px 5px 0px 0px #66bfbf58" : "5px 5px 0px 0px #dcdcdc6f",
+    boxShadow : currPage == 0 ? theme ? "5px 5px 0px 0px #66bfbf58" : "5px 5px 0px 0px #dcdcdc6f" : "none",
     color : theme ? "black" : "white"
   }
 
