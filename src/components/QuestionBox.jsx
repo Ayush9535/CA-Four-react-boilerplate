@@ -8,21 +8,21 @@ import { FaRegLightbulb } from "react-icons/fa6";
 export default function QuestionBox({setPage , currentState , toggleBtn , onbuttonClick}) {
 
   const [currQues , setcurrQues] = useState(0)
-  const [score , setscore] = useState(0)
   const [highlight , sethighlight] = useState(0)
 
-  let handleOption = (id) =>{
-
-    if (questions[currQues].options[id].isCorrect === true){
-      setscore((score)=>score+1)
-      console.log(score)
+  const handleOption = (e) => {
+    if (e.target.value == "true"){
+      localStorage.setItem("score" , Number(localStorage.getItem("score")) + 1)
     }
-    if (currQues === 4){
-      localStorage.setItem("score" , score)
+    if (currQues == 4){
       setPage(2)
     }else{
-    setcurrQues(currQues + 1)
-  }
+      setcurrQues(currQues + 1)
+    }
+  };
+
+  if (currQues == 0){
+    localStorage.setItem("score", 0)
   }
 
   let handleHighlight = () => {
@@ -43,8 +43,8 @@ export default function QuestionBox({setPage , currentState , toggleBtn , onbutt
   }
 
   return (
-        <>
-      <div className='heading-nav'>
+    <>
+        <div className='heading-nav'>
         <h1 className='Heading'>QUIZWIZ</h1>
         <button className='toggle-btn2' style={toggleBtn} onClick={()=>{onbuttonClick()}}>{currentState ? <MdDarkMode style={{fontSize:"30px"}}/> : <FaRegLightbulb style={{fontSize:"25px"}}/>}</button>
       </div>
@@ -53,18 +53,15 @@ export default function QuestionBox({setPage , currentState , toggleBtn , onbutt
 
       <h1 style={quesStyle}>{questions[currQues].text}</h1>
 
-      <button className='option' style={optionStyling} onClick={()=>{handleOption(0)}}> {questions[currQues].options[0].text} </button>
-
-      <button className='option' style={optionStyling} onClick={()=>{handleOption(1)}}> {questions[currQues].options[1].text} </button>
-
-      <button className='option' style={optionStyling} onClick={()=>{handleOption(2)}}> {questions[currQues].options[2].text} </button>
-
-      <button className='option' style={optionStyling} onClick={()=>{handleOption(3)}}> {questions[currQues].options[3].text} </button>
+      {questions[currQues].options.map((ele)=>(
+        <button className='option' key={ele.id} value={ele.isCorrect} style={optionStyling} onClick={handleOption}> {ele.text} </button>
+      ))}
 
       <div className='highlight-options flex'>
         <button className='highlight' onClick={handleHighlight}> Highlight </button>
         <button className='highlight' onClick={handleUnHighlight}> Unhighlight </button>
       </div>
+      
     </>
   )
 }
